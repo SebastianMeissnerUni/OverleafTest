@@ -1,0 +1,182 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definition aller wichtigen Variablen und Einstellungen! %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Angaben Student Allgemein
+
+% Autor
+\newcommand{\baauthor}{Sebastian Meissner}
+% Matrikelnummer: Ohne führende 0 und ES, ohne Versionsnummer 
+\newcommand{\bamatnum}{3084104}
+% Titel der Bachelorarbeit
+\newcommand{\batitle}{Anomalieerkennung in adaptiven Systemen mit Generativer KI}
+% Fachsemester
+\newcommand{\basem}{14}
+% Ort (für Titelseite und eidesstattliche Erklärung)
+\newcommand{\balocation}{Dorsten}
+
+% Adresse Titelseite
+\newcommand{\baadress}{
+\baauthor \\
+Wachtelstraße 74 \\
+46282
+\balocation \\
+Matrikelnummer: \bamatnum
+}
+
+% Angaben Lehrstuhl (Betreuer, Gutachter, Zweitgutachter)
+
+% Betreuer
+\newcommand{\babetreuer}{Prof.\,Dr.\,Andreas Metzger}
+% Erstgutachter
+\newcommand{\bagutachter}{Prof.\,Dr.\,Andreas Metzger}
+% Zweitgutachter
+\newcommand{\bazgutachter}{Prof.\,Dr.\,ABC}
+
+
+% Meta-Daten für das erzeugte PDF-File, Keywords bei Bedarf hinzufügen
+\hypersetup{
+	pdftitle    = {Seminararbeit \baauthor},
+	pdfauthor   = {\baauthor},
+	pdfsubject  = {\batitle},
+	%pdfkeywords = {Stichwort1, Stichwort2, Stichwort3,....}
+}
+
+% Settings
+
+% Abstand über Kapitelname verringern
+\renewcommand*{\chapterheadstartvskip}{\vspace*{.5\baselineskip}}
+
+% Numerierungstiefe
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% Pagestyle ,Header und Fußleisten
+
+% Linien unter der Kopf- und über der Fußzeile
+\KOMAoptions{
+   headsepline = true,
+   footsepline = true
+}
+
+
+% Vorherige Headereinstellungen überschreiben
+\pagestyle{scrheadings}
+\clearscrheadfoot
+
+% Entfernt Nummerierung von Kapitelname in Kopfzeile
+\renewcommand*{\chaptermarkformat}{}
+
+% Aktueller Kapitelname wird ausgelesen und in der Kopfzeile links innen angezeigt
+\automark[chapter]{chapter}
+\ihead[\headmark]{\headmark}
+
+% Links innen BA-Thema, Rechts außen BA-Thema Seitenzahl (1mm Abstand an beiden Seiten)
+\ofoot*{\pagemark\hspace*{0.1mm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wichtig! Sollte der Titel besonders lang sein und über %
+% zwei Zeilen gehen: Variable \batitle ersetzen mit dem  %
+% Themennamen und an geeigneter Stelle mit \\ einen      %
+% manuellen Zeilenumbruch erzwingen.					 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifoot*{\hspace*{0.1mm}\footnotesize{\batitle}}
+
+% Schriftgöße in Kopfleiste
+\setkomafont{pageheadfoot}{\sffamily\small}
+\renewcommand{\headfont}{\small}
+
+% Schriftart zu Times New Roman
+\setkomafont{disposition}{\bfseries}
+
+% Schriftgröße für Chapter, Section, etc. ändern
+\addtokomafont{chapter}{\LARGE}
+\addtokomafont{section}{\Large}
+\addtokomafont{subsection}{\large}
+\addtokomafont{paragraph}{\itshape}
+
+% Einrückung links bei jedem neuen Kapitel, Section, Subsection, Subsubsection
+\setlength{\parindent}{0.5cm}
+
+% Nummerierungsart der Bildunterschriften von Abbildungen und Tabellen
+\makeatletter 
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+\renewcommand{\thefigure}{\arabic{figure}} 
+\renewcommand{\thetable}{\arabic{table}} 
+\renewcommand{\cfttabpresnum}{\bfseries Tabelle } 
+\renewcommand{\cftfigpresnum}{\bfseries Abbildung } 
+\renewcommand{\cftfigaftersnum}{:} 
+\renewcommand{\cfttabaftersnum}{:} 
+\setlength{\cftfignumwidth}{2,5cm}                     
+\setlength{\cfttabnumwidth}{2,0cm}                                           
+\setlength{\cftfigindent}{0cm}                                                     
+\setlength{\cfttabindent}{0cm} 
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Nützliche Commands %
+%%%%%%%%%%%%%%%%%%%%%%
+
+% Leere Seite einfügen
+\newcommand*{\blankpage}{%
+  \clearpage\thispagestyle{empty}\null\newpage%
+}
+
+% Neuen Absatz einfügen mit 0.5cm Abstand nach links
+% Nutzung:  ....abc def. \nAbsatz ghi jkl....
+% Ergebnis: 
+%			....abc def.
+%			
+%				ghi jkl....
+\newcommand{\nAbsatz}{\newline\newline \noindent\hspace*{0.5cm}}
+
+% Neuen Absatz beginnen am Anfang der neuen Zeile Abstand von 0.5cm nach links einfügen
+\newcommand{\nEinrueck}{\noindent\hspace*{0.5cm}}
+
+% z.B. mit Leerzeichen (kleiner und großer erster Buchstabe)
+\newcommand{\stzB}{z.\,B. }
+\newcommand{\stZB}{Z.\,B. }
+
+% d.h. mit Leerzeichen (kleiner und großer erster Buchstabe)
+\newcommand{\stdh}{d.\,h. }
+\newcommand{\stDh}{D.\,h. }
+
+% u.a. mit Leerzeichen (kleiner und großer erster Buchstabe)
+\newcommand{\stua}{u.\,a. }
+\newcommand{\stUa}{U.\,a. }
+
+% Bild einfügen mit Bildunterschrift, Label für interne Verlinkung und Skalierung
+% Nutzung: \mImage{caption}{label}{width-factor}{path}
+% BSP: \mImage{Abbildung ABC}{abb:abc}{0.5}{uni-due-logo.png}
+%
+% Anmerkung: Die maximale Breite (bei Scalefaktor 1.0) ist die Breite des restlichen
+% Textes. Bei mehrzeiliger Bildunterschrift wird der Text zentriert dargestellt.
+\newcommand{\mImage}[4]{
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\textwidth * \real{#3}]{./Bilder/#4}
+		\captionsetup{width=\textwidth * \real{#3}}
+		\caption{\label{#2}#1}
+	\end{figure}    
+}
+\newcommand{\mImageCfg}[5]{
+	\begin{figure}[#5]
+		\centering
+		\includegraphics[width=\textwidth * \real{#3}]{./Bilder/#4}
+		\captionsetup{width=\textwidth * \real{#3}}
+		\caption{\label{#2}#1}
+	\end{figure}    
+}
+
+% Referenz auf Abbildung, referenzierbar anhand Label des zuvor definierten Bildcommands
+% Zeigt: ".. Abbildung 2.x.x zeigt.."
+% Nutzung: ".. \mImageRef{abb:uni-logo} zeigt.."
+\newcommand{\mImageRef}[1]{\hyperref[#1]{Abbildung~\ref*{#1}}}
+
+% Referenz auf Seitenzahl einer Abbildung, referenzierbar anhand Label des zuvor definierten Bildcommands
+% Zeigt: "Auf Seite 12 sieht man..."
+% Nutzung: "Auf \mPageRef{abb:uni-logo} sieht man..."
+\newcommand{\mPageRef}[1]{\hyperref[#1]{Seite~\pageref*{#1}}}

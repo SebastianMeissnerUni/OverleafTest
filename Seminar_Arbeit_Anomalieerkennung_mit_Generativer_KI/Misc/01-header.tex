@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Includings aller benötigten Packages!	%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Akronyme
+\usepackage{acronym}
+
+% Algorithmen (i.d.R. nicht benötigt)
+%\usepackage[plain,chapter]{algorithm}
+%\usepackage{algpseudocode}
+
+% Appendix
+\usepackage[title]{appendix}
+
+% Caption (Bildunterschriften)
+\usepackage[
+	format = plain,
+	font = small,
+	textformat = simple,
+	justification = centering,
+	labelfont = bf
+]{caption}
+\usepackage{subcaption}
+\usepackage{chngcntr}
+\usepackage[titles]{tocloft}
+
+% Einstellungen der Seitenränder
+\usepackage[
+            left = 20mm,
+			right = 30mm,
+			top = 15mm,
+			bottom = 20mm,
+			headsep = 5mm,
+   			footskip = 11mm,
+			includeheadfoot]{geometry}
+
+% Einrücken	der ersten Zeile eines Kapitels	
+\usepackage{indentfirst}
+
+% Enumarations
+\usepackage{enumerate}
+% Anpassbare Enumerates/Itemizes
+\usepackage{enumitem}
+
+% Farben und Grafiken
+\usepackage[pdftex]{graphicx,color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+% Fonts
+\usepackage{pifont}
+\usepackage{lmodern}
+
+% Hyperref - Cross-referencing
+% https://www.namsu.de/Extra/pakete/Hyperref.html
+% Komplette Doku: http://packages.oth-regensburg.de/ctan/macros/latex/contrib/hyperref/doc/manual.pdf
+\usepackage[bookmarks = true,
+			hypertexnames = true,
+			pdfstartview = {FitH},
+			colorlinks = true,
+			linkcolor = black,
+			citecolor = black,
+			filecolor = black,
+			urlcolor = black]{hyperref}
+
+% Komascript Fix
+\usepackage{scrhack}
+\usepackage{listings}
+
+% Kopf- und Fußzeilen
+\usepackage[automark,
+			headsepline,
+			plainheadsepline,
+			plainfootsepline]{scrlayer-scrpage}
+
+% Mathematische Packages
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+
+% Mathematische Packages - beinhaltet Times New Roman als Font (Notwendig!)
+\usepackage{mathptmx} 
+
+% Paket zum Erstellen von Kommentaren 
+%\usepackage{pdfcomment}
+
+% Tabellen & Matrizen
+\usepackage{tabularx}
+\usepackage{calc}
+\usepackage{array}
+
+% Umlaute, Sprache, Unicode-Kodierung
+\usepackage[english,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% URLs
+\usepackage{url}
+
+% Zeilennummerierung
+% https://texblog.org/2012/02/08/adding-line-numbers-to-documents/
+\usepackage{lineno}
+
+% Zitation, Referenzen
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage[german]{varioref}
+
+% Anführungszeichen (Sollte nach "inputenc" importiert werden!)
+\usepackage[autostyle=true,german=quotes]{csquotes}

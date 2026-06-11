@@ -1,0 +1,95 @@
+\documentclass[11pt, a4paper, onecolumn, twoside, titlepage]{scrreprt}
+
+% Header Datei einfügen
+\input{Misc/01-header}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wichtig! Zuerst alle Settings personalisieren! %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Misc/02-settings}
+
+
+% Beginn Dokument
+\begin{document}
+
+% Römische Seitenzahlen
+\pagenumbering{Roman}
+
+% Titelseite, leere Seite, Abstract
+\input{Misc/03-titelseite}
+\blankpage
+\input{Misc/04-abstract}
+
+\renewcommand\thechapter{\Roman{chapter}}
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+%Abbildungsverzeichnis
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\textbf{Abbildung 1:} CloudGEN Architektur – Seite 28
+\nAbsatz
+\textbf{Abbildung 2:} Modell Genauigkeit – Seite 29
+\nAbsatz
+\textbf{Abbildung 3:} Confusion Matrix – Seite 30
+\nAbsatz
+\textbf{Abbildung 5:} Bewertungsmetriken – Seite 31
+\nAbsatz
+
+\automark[chapter]{chapter}
+\ihead[\headmark]{\headmark}
+
+% Tabellenverzeichnis
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+\textbf{Abbildung 4:} Vergleich von Anomaieerkennungsmodellen für cloud Systeme. – Seite 30
+\nAbsatz
+\automark[chapter]{chapter}
+\ihead[\headmark]{\headmark}
+
+% Abkürzungsverzeichnis
+\input{Misc/05-akronyme}
+
+% Arabische Seitenzahlen
+\clearpage
+\pagenumbering{arabic} 
+\renewcommand\thechapter{\arabic{chapter}} 
+\setcounter{chapter}{0}
+
+% Reset Abbildungscounter
+\setcounter{figure}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wichtig! Der Wechsel von arabischen zu römischen %
+% Zahlen (und umgekehrt) erfordert immer ein       %
+% manuelles Setzen der aktuellen Seitenzahl! 	   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{7}
+
+\automark[chapter]{chapter}
+\ihead[\headmark]{\headmark}
+
+% Hauptteil , Einfügen aller Kapitel der Arbeit
+\input{Kapitel/01-einleitung}
+\input{Kapitel/02-kap2}
+\input{Kapitel/03-Praktisches-Beispiel}
+\input{Kapitel/04-zusammenfassung}
+
+
+% Literaturverzeichnis
+% Bib-Datei in \Literatur\ba-arbeit.bib 
+\bibliography{Literatur/arbeit}
+\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{\bibname}
+
+
+% Algorithmenverzeichnis, falls notwendig. I.d.R. nicht benötigt
+%\listof{algorithm}{Algorithmenverzeichnis}
+%\addcontentsline{toc}{chapter}{Algorithmenverzeichnis}
+
+% Eidesstattliche Erklaerung
+\include{Misc/07-erklaerung}
+
+% Ende Dokument
+\end{document}
